@@ -10,6 +10,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import skeleton.Belly;
 import support.Browser;
 
 public class TodoSteps {
@@ -37,4 +38,16 @@ public class TodoSteps {
 		assertThat(todoAt(ordinal - 1).getText(), is(expected));
 	}
 
+	public static class Stepdefs {
+		@Given("^I have (\\d+) cukes in my belly$")
+		public void I_have_cukes_in_my_belly(int cukes) throws Throwable {
+			Belly belly = new Belly();
+			belly.eat(cukes);
+		}
+
+		@Given("^I have an account file with contents:$")
+		public void iHaveAnAccountFileWithContents() {
+
+		}
+	}
 }
